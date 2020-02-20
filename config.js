@@ -3,9 +3,9 @@ module.exports = {
   port: 8888,
   db: {
     host : 'localhost',
-    user : 'demoadmin',
-    password : '123456',
-    database : 'dbiot'
+    user : 'root',
+    password : 'cusMo_eng52',
+    database : 'iotdb'
   },
   socket: {
     url: 'https://socket.bpcd.xenex.io',
