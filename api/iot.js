@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {  // ใช้ async function
 
 router.get('/node1', async (req, res) => {
     try {
-      let rows = await req.db.raw('select * from node1 order by id desc LIMIT 0,1')
+      let rows = await req.db.raw('select * from node1 order by id desc LIMIT 0,5')
       // let rows = await req.db('student').select('code', 'firstName as fname', 'lastName')
       res.send({
         ok: true,
@@ -29,7 +29,7 @@ router.get('/node1', async (req, res) => {
 
 router.get('/node2', async (req, res) => {
     try {
-      let rows = await req.db.raw('select * from node2 order by id desc LIMIT 0,1')
+      let rows = await req.db.raw('select * from node2 order by id desc LIMIT 0,5')
       // let rows = await req.db('student').select('code', 'firstName as fname', 'lastName')
       res.send({
         ok: true,
@@ -42,7 +42,7 @@ router.get('/node2', async (req, res) => {
 
 router.get('/node3', async (req, res) => {
     try {
-      let rows = await req.db.raw('select * from node3 order by id desc LIMIT 0,1')
+      let rows = await req.db.raw('select * from node3 order by id desc LIMIT 0,5')
       // let rows = await req.db('student').select('code', 'firstName as fname', 'lastName')
       res.send({
         ok: true,
