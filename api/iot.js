@@ -55,7 +55,7 @@ router.get('/node3', async (req, res) => {
 
 router.post('/secth', async (req, res) => {
     try {
-        let rows = await req.db.raw("SELECT * FROM `"+req.body.node+"` WHERE (temp >= "+req.body.minT+" AND temp <= "+req.body.maxT+") AND (humit >= "+req.body.minH+" AND humit <= "+req.body.maxH+") order by id DESC")
+        let rows = await req.db.raw("SELECT * FROM `"+req.body.node+"` WHERE (temp >= "+req.body.minT+" AND temp <= "+req.body.maxT+") AND (humit >= "+req.body.minH+" AND humit <= "+req.body.maxH+") order by id DESC LIMIT 0,100")
         // let rows = await req.db('student').select('code', 'firstName as fname', 'lastName')
         res.send({
           ok: true,
@@ -68,7 +68,7 @@ router.post('/secth', async (req, res) => {
 
 router.post('/sect', async (req, res) => {
     try {
-        let rows = await req.db.raw("SELECT * FROM `"+req.body.node+"` WHERE (temp >= "+req.body.minT+" AND temp <= "+req.body.maxT+") order by id DESC")
+        let rows = await req.db.raw("SELECT * FROM `"+req.body.node+"` WHERE (temp >= "+req.body.minT+" AND temp <= "+req.body.maxT+") order by id DESC LIMIT 0,100")
         // let rows = await req.db('student').select('code', 'firstName as fname', 'lastName')
         res.send({
           ok: true,
@@ -81,7 +81,7 @@ router.post('/sect', async (req, res) => {
 
 router.post('/sech', async (req, res) => {
     try {
-        let rows = await req.db.raw("SELECT * FROM `"+req.body.node+"` WHERE (humit >= "+req.body.minH+" AND humit <= "+req.body.maxH+") order by id DESC")
+        let rows = await req.db.raw("SELECT * FROM `"+req.body.node+"` WHERE (humit >= "+req.body.minH+" AND humit <= "+req.body.maxH+") order by id DESC LIMIT 0,100")
         // let rows = await req.db('student').select('code', 'firstName as fname', 'lastName')
         res.send({
           ok: true,
