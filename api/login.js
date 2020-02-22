@@ -12,9 +12,8 @@ router.post('/', async (req, res) => {
     })
   }
 
-  let rows = await req.db('user')
-    .where('login', '=', req.body.login || '')
-    .where('pass', '=', req.body.pass || '')
+  let rows = await req.raw('select * from node3 where ( username = '+ req.body.login +' and password = '+ req.body.pass +')')
+
   if (rows.length === 0) {
     return res.send({
       ok: false,
@@ -26,7 +25,6 @@ router.post('/', async (req, res) => {
 
   // TODO: save ข้อมูลลง session
   // req.session.data = user
-  req.$socket.publish('login', `${user.name} is logged in`)
   
   res.send({
     ok: true,
