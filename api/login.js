@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     })
   }
 
-  let rows = await req.raw('select * from node3 where ( username = '+ req.body.login +' and password = '+ req.body.pass +')')
+  let rows = await req.db.raw('select * from node3 where ( username = '+ req.body.login +' and password = '+ req.body.pass +')')
 
   if (rows.length === 0) {
     return res.send({
